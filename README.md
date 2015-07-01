@@ -1,0 +1,3 @@
+# Commons
+
+A repository to track some common code across Curly project, some auto configuration for Spring Boot apps, helpers, etc...
