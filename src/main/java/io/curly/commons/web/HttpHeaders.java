@@ -20,8 +20,27 @@ package io.curly.commons.web;
  */
 public class HttpHeaders {
 
-	public static final String API_V1 = "Version=curly/api.v1";
+    public static final String API_V1_JSON = "Accept=application/vnd.curly.v1+json";
 
-	public static final String INTERNAL_V1 = "Version=curly/internal.v1";
+    public static final String INTERNAL_V1_JSON = "Accept=application/internal.curly.v1+json";
 
+    public static final String DEFAULT_API_V1_JSON = "Accept=application/vnd.curly.v1+json,*";
+
+    public static final String DEFAULT_INTERNAL_V1_JSON = "Accept=application/internal.curly.v1+json,*";
+
+    public static final String API_V1_HAL = "Accept=application/vnd.curly.v1+hal+json";
+
+    public static final String INTERNAL_V1_HAL = "Accept=application/internal.curly.v1+hal+json";
+
+    public static final String DEFAULT_API_V1_HAL = "Accept=application/vnd.curly.v1+hal+json";
+
+    public static final String DEFAULT_INTERNAL_V1_HAL = "Accept=application/internal.curly.v1+hal+json";
+
+    public static String getName(String fullHeader) {
+        return fullHeader.split("=")[0];
+    }
+
+    public static String getValue(String fullHeader) {
+        return fullHeader.split("=")[1];
+    }
 }
