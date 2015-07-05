@@ -2,23 +2,23 @@
 <metadata modelVersion="1.1.0">
   <groupId>io.curly</groupId>
   <artifactId>commons</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20150705.184106</timestamp>
+      <timestamp>20150705.184839</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20150705184106</lastUpdated>
+    <lastUpdated>20150705184839</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>1.0-20150705.184106-1</value>
-        <updated>20150705184106</updated>
+        <value>1.1-20150705.184839-1</value>
+        <updated>20150705184839</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0-20150705.184106-1</value>
-        <updated>20150705184106</updated>
+        <value>1.1-20150705.184839-1</value>
+        <updated>20150705184839</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
