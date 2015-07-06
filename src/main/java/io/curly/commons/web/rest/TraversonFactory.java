@@ -34,6 +34,8 @@ public class TraversonFactory {
 
     public Traverson create(String serviceId) {
         ServiceInstance instance = loadBalancerClient.choose(serviceId);
-        return new Traverson(instance.getUri(), MediaTypes.HAL_JSON);
+        if (instance != null)
+            return new Traverson(instance.getUri(), MediaTypes.HAL_JSON);
+        else throw new IllegalStateException("Instance is null!");
     }
 }
