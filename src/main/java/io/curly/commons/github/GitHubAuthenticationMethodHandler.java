@@ -61,22 +61,14 @@ public class GitHubAuthenticationMethodHandler implements HandlerMethodArgumentR
         if (userAuthentication != null) {
             try {
                 LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) userAuthentication.getDetails();
-                return new User(String.valueOf(map.get("email")),
-                        Boolean.valueOf(String.valueOf(map.get("hireable"))),
-                        Long.valueOf(String.valueOf(map.get("id"))),
-                        Integer.valueOf(String.valueOf(map.get("followers"))),
-                        Integer.valueOf(String.valueOf(map.get("following"))),
-                        Integer.valueOf(String.valueOf(map.get("public_repos"))),
-                        String.valueOf(map.get("avatar_url")),
-                        String.valueOf(map.get("blog")),
-                        String.valueOf(map.get("company")),
-                        null,
-                        String.valueOf(map.get("html_url")),
-                        null,
-                        String.valueOf(map.get("login")),
-                        String.valueOf(map.get("name")),
-                        String.valueOf(map.get("type")),
-                        String.valueOf(map.get("url")));
+                return User.builder()
+                        .id(String.valueOf(map.get("id")))
+                        .avatarUrl(String.valueOf(map.get("avatar_url")))
+                        .email(String.valueOf(map.get("email")))
+                        .name(String.valueOf(map.get("name")))
+                        .type(String.valueOf(map.get("type")))
+                        .username(String.valueOf(map.get("login")))
+                        .build();
 
             } catch (ClassCastException e) {
                 log.error("Cannot build User due to a ClassCastException {}", e);
