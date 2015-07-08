@@ -33,7 +33,7 @@ import java.security.Principal;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = true)
-public class OctoUser extends SimpleUser<Long> implements Serializable, Principal {
+public class User extends SimpleUser<Long> implements Serializable, Principal {
 
     public static final String TYPE_USER = "User";
 
@@ -71,7 +71,7 @@ public class OctoUser extends SimpleUser<Long> implements Serializable, Principa
 
     private String url;
 
-    public OctoUser(String email, boolean hireable, long id, int followers, int following, int publicRepos, String avatarUrl,
+    public User(String email, boolean hireable, long id, int followers, int following, int publicRepos, String avatarUrl,
                     String blog, String company, String gravatarId, String htmlUrl, String location, String login,
                     String name, String type, String url) {
         super(id);
@@ -92,10 +92,10 @@ public class OctoUser extends SimpleUser<Long> implements Serializable, Principa
         this.url = url;
     }
 
-    public OctoUser(Long id) {
+    public User(Long id) {
         super(id);
     }
 
-    public OctoUser() {
+    public User() {
     }
 }

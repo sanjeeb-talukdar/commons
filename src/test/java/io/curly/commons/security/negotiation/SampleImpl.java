@@ -15,10 +15,10 @@
  */
 package io.curly.commons.security.negotiation;
 
-import io.curly.commons.github.OctoUser;
+import io.curly.commons.github.User;
 
 /**
  * @author Joao Pedro Evangelista
  */
-public class SampleImpl extends ResourceOperationsResolverAdapter<SampleResource, OctoUser> {
+public class SampleImpl extends ResourceOperationsResolverAdapter<SampleResource, User> {
 }

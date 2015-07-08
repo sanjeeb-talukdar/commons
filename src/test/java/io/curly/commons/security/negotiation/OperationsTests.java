@@ -15,7 +15,7 @@
  */
 package io.curly.commons.security.negotiation;
 
-import io.curly.commons.github.OctoUser;
+import io.curly.commons.github.User;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -37,7 +37,7 @@ public class OperationsTests {
         SampleImpl sample = new SampleImpl();
         SampleResource sampleResource = new SampleResource();
         sampleResource.setOwner("1234");
-        OctoUser user = new OctoUser(4321L);
+        User user = new User(4321L);
         sample.checkMatch(sampleResource, user);
     }
 
@@ -45,7 +45,7 @@ public class OperationsTests {
     public void testOnSave() throws Exception {
         SampleImpl sample = new SampleImpl();
         SampleResource sampleResource = new SampleResource();
-        OctoUser user = new OctoUser(1234L);
+        User user = new User(1234L);
         assertTrue(sampleResource.getOwner() == null);
         sample.checkMatch(sampleResource, user);
         assertEquals("Owner must be equal than user id", sampleResource.getOwner(), user.getId().toString());

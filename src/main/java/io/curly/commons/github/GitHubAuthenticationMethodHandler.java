@@ -56,12 +56,12 @@ public class GitHubAuthenticationMethodHandler implements HandlerMethodArgumentR
     }
 
     @SuppressWarnings("unchecked")
-    private OctoUser from(OAuth2Authentication auth) {
+    private User from(OAuth2Authentication auth) {
         Authentication userAuthentication = auth.getUserAuthentication();
         if (userAuthentication != null) {
             try {
                 LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) userAuthentication.getDetails();
-                return new OctoUser(String.valueOf(map.get("email")),
+                return new User(String.valueOf(map.get("email")),
                         Boolean.valueOf(String.valueOf(map.get("hireable"))),
                         Long.valueOf(String.valueOf(map.get("id"))),
                         Integer.valueOf(String.valueOf(map.get("followers"))),
@@ -79,7 +79,7 @@ public class GitHubAuthenticationMethodHandler implements HandlerMethodArgumentR
                         String.valueOf(map.get("url")));
 
             } catch (ClassCastException e) {
-                log.error("Cannot build OctoUser due to a ClassCastException {}", e);
+                log.error("Cannot build User due to a ClassCastException {}", e);
             }
         }
         log.debug("Returning no user due to previous errors or no UserAuthentication detected");
