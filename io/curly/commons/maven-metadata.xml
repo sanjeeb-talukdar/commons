@@ -3,10 +3,10 @@
   <groupId>io.curly</groupId>
   <artifactId>commons</artifactId>
   <versioning>
-    <release>1.0.4-RELEASE</release>
+    <release>1.0.3-RELEASE</release>
     <versions>
-      <version>1.0.4-RELEASE</version>
+      <version>1.0.3-RELEASE</version>
     </versions>
-    <lastUpdated>20150719035948</lastUpdated>
+    <lastUpdated>20150719040248</lastUpdated>
   </versioning>
 </metadata>
