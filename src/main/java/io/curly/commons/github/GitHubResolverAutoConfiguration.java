@@ -15,11 +15,15 @@
  */
 package io.curly.commons.github;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,9 +32,14 @@ import java.util.List;
 @Configuration
 public class GitHubResolverAutoConfiguration extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(gitHubAuthenticationMethodHandler());
+    @Autowired
+    RequestMappingHandlerAdapter requestMappingHandlerAdapter;
+
+    @PostConstruct
+    public void init() throws Exception {
+        final List<HandlerMethodArgumentResolver> resolvers = new ArrayList<>(requestMappingHandlerAdapter.getArgumentResolvers());
+        resolvers.add(0,gitHubAuthenticationMethodHandler());
+        requestMappingHandlerAdapter.setArgumentResolvers(resolvers);
     }
 
     @Bean
